@@ -43,7 +43,6 @@ def threading():
     t1 = Thread(target=progress)
     t1.start()
 
-
 is_playing = False
 
 def play_music(song_name=None):
@@ -60,7 +59,6 @@ def play_music(song_name=None):
     else:
         pygame.mixer.music.unpause()
         is_playing = True
-
 
 def skip_forward():
     global n
@@ -100,6 +98,5 @@ slider.place(relx=0.5, rely=0.78, anchor=tkinter.CENTER)
 
 progressbar = customtkinter.CTkProgressBar(master=root, progress_color='#32a85a', width=250)
 progressbar.place(relx=.5, rely=.85, anchor=tkinter.CENTER)
-
 
 root.mainloop()
