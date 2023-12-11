@@ -30,7 +30,6 @@ def add_music():
         label.pack()
         list_of_songs.append(f"{dossier}/{fichier}")
 
-
 add_music()
 
 def progress():
@@ -45,23 +44,20 @@ def threading():
     t1.start()
 
 
-is_playing = False  # Ajouter une variable pour suivre l'état de lecture
+is_playing = False
 
 def play_music(song_name=None):
     global n, is_playing
-
-    if song_name:  # Si un nouveau morceau est passé, chargez-le et commencez à jouer
+    if song_name:
         threading()
         pygame.mixer.music.load(song_name)
         pygame.mixer.music.play(loops=0)
         pygame.mixer.music.set_volume(.5)
-        is_playing = True  # La musique est en cours de lecture
-
-    elif is_playing:  # Si la musique est en cours de lecture, mettez-la en pause
+        is_playing = True
+    elif is_playing:
         pygame.mixer.music.pause()
         is_playing = False
-
-    else:  # Si la musique est en pause, reprenez la lecture
+    else:
         pygame.mixer.music.unpause()
         is_playing = True
 
