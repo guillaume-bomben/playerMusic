@@ -76,10 +76,15 @@ def skip_back():
         n = len(list_of_songs) - 1
     play_music(list_of_songs[n])
 
-
 def volume(value):
     pygame.mixer.music.set_volume(value)
 
+def on_closing():
+    pygame.mixer.music.stop()  # Arrêter la musique en cours
+    root.destroy()  # Fermer la fenêtre
+    os._exit(0)  # Terminer proprement le programme
+
+root.protocol("WM_DELETE_WINDOW", on_closing)
 
 play_button = customtkinter.CTkButton(master=root, text='Play', command=play_music)
 play_button.place(relx=0.5, rely=0.7, anchor=tkinter.CENTER)
